@@ -17,7 +17,8 @@ Firefox only installs signed add-ons, so it has to go through Mozilla (free, and
 1. Bump `version` in `manifest.json`
 2. `npx web-ext build --overwrite-dest`
 3. Upload the zip from `web-ext-artifacts/` at https://addons.mozilla.org/developers/ → Submit a New Add-on → "On your own"
-4. Download the signed `.xpi` and attach it to a new GitHub release
+4. Download the signed `.xpi`, rename it to `pas_production_warning-<version>.xpi` and attach it to a GitHub release tagged `v<version>`
+5. Add the new version to `updates.json` and push. Installed copies update themselves within a day or so
 
 For quick testing without signing: `about:debugging#/runtime/this-firefox` → Load Temporary Add-on → pick `manifest.json`.
 
