@@ -1,3 +1,4 @@
 web-ext-artifacts/
 .DS_Store
 node_modules/
+xpi_files/
