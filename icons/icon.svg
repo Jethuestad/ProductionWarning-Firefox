@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f2434b"/>
+      <stop offset="1" stop-color="#c5161f"/>
+    </linearGradient>
+    <pattern id="stripes" width="16" height="16" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <rect width="8" height="16" fill="#ffffff" fill-opacity="0.16"/>
+    </pattern>
+    <clipPath id="tile">
+      <rect x="4" y="4" width="120" height="120" rx="28"/>
+    </clipPath>
+  </defs>
+  <g clip-path="url(#tile)">
+    <rect x="4" y="4" width="120" height="120" fill="url(#bg)"/>
+    <rect x="4" y="4" width="120" height="120" fill="url(#stripes)"/>
+  </g>
+  <!-- the "page" with a warning frame around it -->
+  <rect x="22" y="22" width="84" height="84" rx="14" fill="none" stroke="#ffffff" stroke-width="9"/>
+  <!-- exclamation mark -->
+  <rect x="56" y="36" width="16" height="38" rx="8" fill="#ffffff"/>
+  <circle cx="64" cy="88" r="8.5" fill="#ffffff"/>
+</svg>

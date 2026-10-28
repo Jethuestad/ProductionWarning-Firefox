@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>PAS Production Warning – Settings</title>
+    <link rel="icon" href="../icons/icon.svg" />
+    <link rel="stylesheet" href="../shared/ui.css" />
+    <link rel="stylesheet" href="options.css" />
+</head>
+
+<body>
+    <main>
+        <header>
+            <img src="../icons/icon.svg" alt="" width="40" height="40" />
+            <div>
+                <h1>PAS Production Warning</h1>
+                <p class="muted">Applies to eksamen, prover, elev and kandidat.udir.no. Changes are saved and applied to open tabs immediately.</p>
+            </div>
+            <span id="saved" class="saved" aria-live="polite"></span>
+        </header>
+
+        <section class="card">
+            <h2>Preview</h2>
+            <div id="preview" class="preview">
+                <div class="preview-overlay"></div>
+                <div class="preview-label"><span id="previewLabel"></span><small>eksamen.udir.no</small></div>
+                <div class="preview-page">
+                    <div class="line w60"></div>
+                    <div class="line w80"></div>
+                    <div class="line w40"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>Appearance</h2>
+            <div class="row">
+                <div>
+                    <div class="row-title">Warnings enabled</div>
+                    <div class="muted">Turn off to temporarily hide all warnings.</div>
+                </div>
+                <label class="toggle"><input type="checkbox" id="enabled" /><span></span></label>
+            </div>
+            <div class="row">
+                <div>
+                    <div class="row-title">Default color</div>
+                    <div class="muted">Used for every production site without its own color below.</div>
+                </div>
+                <div id="defaultColor"></div>
+            </div>
+            <div class="row">
+                <div>
+                    <div class="row-title">Border width</div>
+                    <div class="muted"><output id="borderWidthValue"></output> px</div>
+                </div>
+                <input type="range" id="borderWidth" min="2" max="20" step="1" />
+            </div>
+            <div class="row">
+                <div>
+                    <div class="row-title">Warning stripes</div>
+                    <div class="muted">Faint diagonal stripes over the whole page. Clicks still go through.</div>
+                </div>
+                <label class="toggle"><input type="checkbox" id="overlay" /><span></span></label>
+            </div>
+            <div class="row">
+                <div>
+                    <div class="row-title">Label at top</div>
+                    <div class="muted">A small tab at the top of the page showing the text below and the host name.</div>
+                </div>
+                <label class="toggle"><input type="checkbox" id="label" /><span></span></label>
+            </div>
+            <div class="row">
+                <div class="row-title">Label text</div>
+                <input type="text" id="labelText" maxlength="40" />
+            </div>
+            <div class="row">
+                <div>
+                    <div class="row-title">Colored tab icon</div>
+                    <div class="muted">Replaces the site's favicon so production tabs stand out in the tab bar.</div>
+                </div>
+                <label class="toggle"><input type="checkbox" id="tabIcon" /><span></span></label>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>Colors per domain</h2>
+            <p class="muted">
+                Enter a full host name (<code>pas.eksamen.udir.no</code>) or just its first part (<code>pas</code>).
+                The first matching rule wins.
+            </p>
+            <ul id="rules" class="rules"></ul>
+            <p id="noRules" class="muted empty">No domain rules yet – every production site uses the default color.</p>
+            <button type="button" class="btn" id="addRule">+ Add domain</button>
+        </section>
+
+        <footer>
+            <button type="button" class="btn" id="reset">Reset to defaults</button>
+            <span class="muted">No data is collected. Settings sync through your Firefox account if sync is on.</span>
+        </footer>
+    </main>
+
+    <script src="../shared/common.js"></script>
+    <script src="options.js"></script>
+</body>
+
+</html>

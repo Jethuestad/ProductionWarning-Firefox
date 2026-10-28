@@ -1,0 +1,129 @@
+:root {
+    color-scheme: light dark;
+    --bg: #f6f6f8;
+    --surface: #ffffff;
+    --border: #e1e1e6;
+    --text: #1d1d22;
+    --muted: #6b6b76;
+    --accent: #e3262f;
+    --focus: #2563eb;
+    --radius: 10px;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg: #1c1b22;
+        --surface: #2b2a33;
+        --border: #3f3e48;
+        --text: #f3f3f6;
+        --muted: #a5a4ae;
+    }
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 14px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+button,
+input,
+select {
+    font: inherit;
+    color: inherit;
+}
+
+.btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    border-radius: 8px;
+    padding: 6px 14px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    border-color: var(--muted);
+}
+
+.btn.primary {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+    font-weight: 600;
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: default;
+}
+
+:focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 2px;
+}
+
+/* Toggle switch: <label class="toggle"><input type="checkbox"><span></span></label> */
+.toggle {
+    position: relative;
+    display: inline-block;
+    flex: none;
+    width: 36px;
+    height: 20px;
+}
+
+.toggle input {
+    position: absolute;
+    opacity: 0;
+    inset: 0;
+    margin: 0;
+    cursor: pointer;
+}
+
+.toggle span {
+    position: absolute;
+    inset: 0;
+    border-radius: 999px;
+    background: var(--border);
+    transition: background 0.15s;
+    pointer-events: none;
+}
+
+.toggle span::before {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    transition: transform 0.15s;
+}
+
+.toggle input:checked + span {
+    background: var(--accent);
+}
+
+.toggle input:checked + span::before {
+    transform: translateX(16px);
+}
+
+.toggle input:focus-visible + span {
+    outline: 2px solid var(--focus);
+    outline-offset: 2px;
+}
+
+.swatch {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border-radius: 4px;
+    vertical-align: -2px;
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.15);
+}

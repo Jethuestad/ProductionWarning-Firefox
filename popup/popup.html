@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../shared/ui.css" />
+    <link rel="stylesheet" href="popup.css" />
+</head>
+
+<body>
+    <header>
+        <img src="../icons/icon.svg" alt="" width="24" height="24" />
+        <strong>PAS Production Warning</strong>
+    </header>
+
+    <section id="status" class="status">
+        <span class="swatch" id="statusSwatch"></span>
+        <div>
+            <div id="statusTitle"></div>
+            <div id="statusHost" class="muted"></div>
+        </div>
+    </section>
+
+    <ul class="toggles">
+        <li>
+            <span>Warnings enabled</span>
+            <label class="toggle"><input type="checkbox" data-key="enabled" /><span></span></label>
+        </li>
+        <li>
+            <span>Warning stripes</span>
+            <label class="toggle"><input type="checkbox" data-key="overlay" /><span></span></label>
+        </li>
+        <li>
+            <span>Label at top</span>
+            <label class="toggle"><input type="checkbox" data-key="label" /><span></span></label>
+        </li>
+        <li>
+            <span>Colored tab icon</span>
+            <label class="toggle"><input type="checkbox" data-key="tabIcon" /><span></span></label>
+        </li>
+    </ul>
+
+    <footer>
+        <button type="button" class="btn" id="options">Colors &amp; domains…</button>
+    </footer>
+
+    <script src="../shared/common.js"></script>
+    <script src="popup.js"></script>
+</body>
+
+</html>
