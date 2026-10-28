@@ -1,47 +1,24 @@
-# PAS Production Warning – Firefox
+# ProductionWarning-Firefox
 
-Firefox version of the PAS Production Warning extension. On `eksamen`, `prover`, `elev` and `kandidat.udir.no` it shows:
+Firefox version of the PAS production warning extension. Puts a red border and some stripes on eksamen/prover/elev/kandidat.udir.no so you notice you're in prod. Works in Zen too.
 
-- a colored border around the page
-- faint warning stripes over the page (clicks still go through)
-- a small "PRODUKSJON" label at the top with the host name
-- a colored tab icon, so production tabs stand out in the tab bar
+## Install
 
-Everything is on by default, and changes in the popup or settings apply to open tabs immediately – no reload needed.
+1. Download the latest `.xpi` from [Releases](https://github.com/Jethuestad/ProductionWarning-Firefox/releases)
+2. Drag it into a Firefox window (or `about:addons` → ⚙ → Install Add-on From File)
+3. Click Add
 
-## Install (temporary, for testing)
+Settings are under the toolbar icon.
 
-1. Open `about:debugging#/runtime/this-firefox`
-2. Click **Load Temporary Add-on…**
-3. Pick `manifest.json` in this folder
+## Making a new release
 
-Temporary add-ons are removed when Firefox restarts.
+Firefox only installs signed add-ons, so it has to go through Mozilla (free, and it doesn't get listed publicly).
 
-## Install permanently
+1. Bump `version` in `manifest.json`
+2. `npx web-ext build --overwrite-dest`
+3. Upload the zip from `web-ext-artifacts/` at https://addons.mozilla.org/developers/ → Submit a New Add-on → "On your own"
+4. Download the signed `.xpi` and attach it to a new GitHub release
 
-Regular Firefox only installs signed add-ons. Either:
+For quick testing without signing: `about:debugging#/runtime/this-firefox` → Load Temporary Add-on → pick `manifest.json`.
 
-- sign it as an unlisted add-on on [addons.mozilla.org](https://addons.mozilla.org/developers/) (`npx web-ext sign --channel=unlisted` with your API keys), then install the signed `.xpi`, or
-- use Firefox Developer Edition / Nightly, set `xpinstall.signatures.required` to `false` in `about:config`, and install `web-ext-artifacts/*.zip` via **about:addons → ⚙ → Install Add-on From File…**
-
-## Settings
-
-Click the toolbar icon for quick toggles, or **Colors & domains…** for the full settings page:
-
-- default color (palette or any custom color) and border width
-- label text
-- per-domain colors: enter a full host (`pas.eksamen.udir.no`) or its first part (`pas`)
-
-## Development
-
-```bash
-npx web-ext lint
-npx web-ext run
-npx web-ext build --overwrite-dest
-```
-
-## Credits and license
-
-Based on the Production Warning Chrome extension by [keal.us](https://keal.us), via a fork adapted for PAS/udir.no. This Firefox version is a rewrite, but builds on the original's design and behavior.
-
-Licensed under the [Mozilla Public License 2.0](LICENSE), the same license as the original.
+Based on [fagerli93/ProductionWarning-Chrome](https://github.com/fagerli93/ProductionWarning-Chrome). MPL 2.0, see LICENSE.
