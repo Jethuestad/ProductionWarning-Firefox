@@ -12,7 +12,7 @@
     },
     "browser_specific_settings": {
         "gecko": {
-            "id": "pas-production-warning@bekk.no",
+            "id": "pas-production-warning@jethuestad",
             "strict_min_version": "128.0",
             "data_collection_permissions": {
                 "required": ["none"]
